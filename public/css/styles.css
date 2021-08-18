@@ -1,0 +1,429 @@
+/* For old browsers */
+@supports (not(--css: variables))
+{
+    .supports_error
+    {
+        display: flex !important;
+    }
+}
+
+/* For IE */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)
+{
+    .supports_error
+    {
+        display: flex !important;
+    }
+}
+
+
+
+/*------------------
+    Reset styles
+------------------*/
+*
+{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+*:before,
+*:after
+{
+    box-sizing: border-box;
+}
+
+html
+{
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+        -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body
+{
+    margin: 0;
+
+    -webkit-tap-highlight-color: transparent;
+    -webkit-overflow-scrolling: touch;
+    text-rendering: optimizeLegibility;
+    text-decoration-skip: objects;
+}
+
+img
+{
+    border-style: none;
+}
+
+textarea
+{
+    overflow: auto;
+}
+
+input,
+textarea,
+input:active,
+textarea:active,
+button
+{
+    margin: 0;
+
+    -webkit-border-radius: 0;
+            border-radius: 0;
+         outline: none transparent !important;
+    box-shadow: none;
+
+    -webkit-appearance: none;
+            appearance: none;
+    -moz-outline: none !important;
+}
+
+:focus
+{
+    outline: 0;
+}
+
+:hover,
+:active
+{
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-touch-callout: none;
+}
+
+
+::-ms-clear
+{
+    display: none;
+}
+
+
+
+/*-------------------
+    Global styles
+-------------------*/
+:root
+{
+    --bg: #f1f5f9;
+    --sidebar_width: 260px;
+    --scroll_width: 17px;
+    --text_color: #333;
+    --font_size: 15px;
+    --font_size_title: 32px;
+    --font_family: 'Inter', 'Arial', sans-serif;
+    --font_family2: 'Exo 2', 'Arial', sans-serif;
+    --block_bg: #fff;
+    --block_shadow: 0 2px 7px 0 rgba(0,0,0,.1);
+    --block_padding: 40px 52px;
+    --block_radius: 8px;
+    --border_color: #ddd;
+}
+
+
+::selection
+{
+    color: #fff;
+
+    background: #0084ff;
+}
+
+::-moz-selection
+{
+    color: #fff;
+
+    background: #0084ff;
+}
+
+
+html
+{
+    height: 100%;
+    min-height: -moz-available;
+    min-height: -webkit-fill-available;
+    min-height:         fill-available;
+}
+
+html.custom_scroll ::-webkit-scrollbar
+{
+    width: 10px;
+    height: 10px;
+
+    background-color: #ccc;
+}
+
+html.custom_scroll ::-webkit-scrollbar-thumb
+{
+    background-color: #0084ff;
+}
+
+html.custom_scroll
+{
+    scrollbar-color: #0084ff #ccc;
+    scrollbar-width: thin;
+}
+
+
+body
+{
+    color: var(--text_color);
+    font: var(--font_size) var(--font_family);
+
+    height: 100%;
+    min-height: -moz-available;
+    min-height: -webkit-fill-available;
+    min-height:         fill-available;
+}
+
+
+button
+{
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+
+    cursor: pointer;
+
+    border: none;
+    background: none;
+}
+
+
+.wrap
+{
+    position: relative;
+
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+
+    min-width: 375px;
+    min-height: 100%;
+
+    background: var(--bg);
+}
+
+
+.main
+{
+    display: flex;
+
+    flex: 1 0 auto;
+}
+
+
+.row
+{
+    display: flex;
+
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    flex-wrap: wrap;
+}
+
+
+
+.main_content
+{
+    position: relative;
+
+    width: calc(100% - var(--sidebar_width));
+    margin-left: var(--sidebar_width);
+    padding: 40px;
+}
+
+
+
+/*--------------------
+    Supports error
+--------------------*/
+.supports_error
+{
+    font-family: 'Arial', sans-serif;
+    font-size: 20px;
+    line-height: 30px;
+
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+
+    display: none;
+
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+
+    text-align: center;
+
+    background: #fff;
+
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.supports_error.show
+{
+    display: flex;
+}
+
+
+
+/*-----------
+    Toast
+-----------*/
+.v-toast
+{
+    position: fixed;
+    z-index: 1000;
+    top: 24px;
+    right: 24px;
+
+    width: 312px;
+    max-width: calc(100vw - 48px);
+}
+
+.v-toast .v-toast__item
+{
+    color: #6c6f84;
+    font-size: 13px;
+    line-height: 17px;
+
+    position: relative;
+
+    padding: 16px 24px 16px 48px;
+
+    animation: fadeInUp .5s;
+
+    border-radius: var(--block_radius);
+    background: var(--block_bg);
+    box-shadow: var(--block_shadow);
+}
+
+.v-toast .v-toast__item + .v-toast__item
+{
+    margin-top: 8px;
+}
+
+
+.v-toast .v-toast__item.v-toast__item--success:before
+{
+    position: absolute;
+    top: -2px;
+    bottom: 0;
+    left: 20px;
+
+    display: block;
+
+    width: 13px;
+    height: 10px;
+    margin: auto;
+
+    content: '';
+
+    background: url(/images/ic_success.svg) 0 0/13px 10px no-repeat;
+}
+
+
+.v-toast .v-toast__item.v-toast__item--error:before,
+.v-toast .v-toast__item.v-toast__item--error:after
+{
+    position: absolute;
+    top: -2px;
+    bottom: 0;
+    left: 20px;
+
+    display: block;
+
+    width: 16px;
+    height: 2px;
+    margin: auto;
+
+    content: '';
+    transform: rotate(45deg);
+
+    background: #e64141;
+}
+
+.v-toast .v-toast__item.v-toast__item--error:after
+{
+    transform: rotate(-45deg);
+}
+
+
+
+/*---------------
+    Animation
+---------------*/
+.fade-enter-active,
+.fade-leave-active
+{
+    animation: .4s linear fadeIn;
+}
+
+
+.fadeInUp-enter-active,
+.fadeInUp-leave-active
+{
+    animation: .4s linear fadeInUp;
+}
+
+
+
+/*---------------
+    Keyframes
+---------------*/
+@-webkit-keyframes fadeIn
+{
+    0%
+    {
+        opacity: 0;
+    }
+}
+@-moz-keyframes fadeIn
+{
+    0%
+    {
+        opacity: 0;
+    }
+}
+@keyframes fadeIn
+{
+    0%
+    {
+        opacity: 0;
+    }
+}
+
+
+
+@-webkit-keyframes fadeInUp
+{
+    0%
+    {
+        transform: translateY(20vh);
+
+        opacity: 0;
+    }
+}
+@-moz-keyframes fadeInUp
+{
+    0%
+    {
+        transform: translateY(20vh);
+
+        opacity: 0;
+    }
+}
+@keyframes fadeInUp
+{
+    0%
+    {
+        transform: translateY(20vh);
+
+        opacity: 0;
+    }
+}

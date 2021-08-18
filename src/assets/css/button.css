@@ -1,0 +1,84 @@
+/*-------------
+    Buttons
+-------------*/
+.btn
+{
+    color: #fff;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+
+    position: relative;
+
+    display: inline-block;
+    overflow: hidden;
+
+    padding: 12px 32px;
+
+    cursor: pointer;
+    transition: .2s linear;
+    vertical-align: top;
+    text-decoration: none;
+
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background: transparent;
+}
+
+.btn.primary
+{
+    border-color: #0084ff;
+    background: #0084ff;
+}
+
+
+.btn .btn_label
+{
+    position: relative;
+    z-index: 3;
+
+    display: block;
+
+    transition: .3s ease;
+}
+
+.btn .loader
+{
+    z-index: 2;
+
+    transition: .3s ease;
+
+    opacity: 0;
+}
+
+
+.btn.primary:hover
+{
+    border-color: #0062cc;
+    background-color: #0069d9;
+}
+
+.btn.primary .loader div:after
+{
+    background: #fff;
+}
+
+
+.btn.loading
+{
+    pointer-events: none;
+}
+
+.btn.loading .btn_label
+{
+    transform: scale(.5);
+
+    opacity: 0;
+}
+
+.btn.loading .loader
+{
+    transform: scale(.45);
+
+    opacity: 1;
+}

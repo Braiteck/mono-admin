@@ -1,0 +1,11 @@
+#auth
+{
+    width: 416px;
+    max-width: 100%;
+    margin: auto;
+    padding: var(--block_padding);
+
+    border-radius: var(--block_radius);
+    background: var(--block_bg);
+    box-shadow: var(--block_shadow);
+}

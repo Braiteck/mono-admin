@@ -1,0 +1,19 @@
+#top_panel
+{
+    position: fixed;
+    z-index: 90;
+    top: 0;
+    left: 0;
+
+    display: flex;
+
+    width: 100%;
+
+    background: var(--block_bg);
+    box-shadow: var(--block_shadow);
+
+    justify-content: flex-end;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+}

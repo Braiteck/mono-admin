@@ -1,0 +1,208 @@
+.form
+{
+    --form_border_color: #e1e5ef;
+    --form_focus_color: #0084ff;
+    --form_error_color: #e64141;
+    --form_border_radius: 4px;
+    --form_bg_color: transparent;
+    --form_placeholder_color: #737f9e;
+}
+
+
+.form ::-webkit-input-placeholder
+{
+    color: var(--form_placeholder_color);
+}
+
+.form :-moz-placeholder
+{
+    color: var(--form_placeholder_color);
+}
+
+.form :-ms-input-placeholder
+{
+    color: var(--form_placeholder_color);
+}
+
+
+.form .line
+{
+    margin-bottom: 28px;
+}
+
+
+.form .label
+{
+    color: rgba(30,41,59);
+    font-weight: 500;
+
+    margin-bottom: 8px;
+}
+
+
+.form .field
+{
+    position: relative;
+}
+
+
+.form .input
+{
+    color: var(--text_color);
+    font: var(--font_size) var(--font_family);
+
+    display: block;
+
+    width: 100%;
+    height: 48px;
+    padding: 0 68px 0 20px;
+
+    transition: border-color .2s linear;
+
+    border: 1px solid var(--form_border_color);
+    border-radius: var(--form_border_radius);
+    background: var(--form_bg_color);
+}
+
+.form .input:-webkit-autofill
+{
+    -webkit-box-shadow: inset 0 0 0 50px var(--form_bg_color) !important;
+}
+
+
+.form .input:focus
+{
+    border-color: var(--form_focus_color);
+}
+
+.form .input.error
+{
+    border-color: var(--form_error_color);
+}
+
+
+.form .error_info
+{
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    right: 0;
+}
+
+.form .error_info .icon
+{
+    color: #fff;
+
+    display: flex;
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: 0 var(--form_border_radius) var(--form_border_radius) 0;
+    background: var(--form_error_color);
+
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.form .error_info .icon > *
+{
+    display: block;
+
+    width: 21px;
+    height: 20px;
+}
+
+
+.form .error_info .message
+{
+    color: #fff;
+    font-size: 13px;
+    line-height: 17px;
+
+    position: absolute;
+    top: calc(100% + 24px);
+    right: 0;
+
+    visibility: hidden;
+
+    width: 312px;
+    padding: 8px 16px;
+
+    transition: .2s linear;
+    text-align: center;
+    pointer-events: none;
+
+    opacity: 0;
+    border-radius: var(--form_border_radius);
+    background: var(--form_error_color);
+}
+
+.form .error_info .message:after
+{
+    position: absolute;
+    right: 18px;
+    bottom: 100%;
+
+    display: block;
+
+    width: 12px;
+    height: 6px;
+
+    content: '';
+
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid var(--form_error_color);
+    border-left: 6px solid transparent;
+}
+
+
+.form .error_info:hover .message
+{
+    top: calc(100% + 10px);
+
+    visibility: visible;
+
+    opacity: 1;
+}
+
+
+.form .submit
+{
+    display: flex;
+
+    padding-top: 4px;
+
+    justify-content: flex-end;
+    align-items: flex-start;
+    align-content: flex-start;
+    flex-wrap: wrap;
+}
+
+
+
+.form.processing
+{
+    pointer-events: none;
+}
+
+.form.processing .submit_btn.btn
+{
+    pointer-events: none;
+}
+
+.form.processing .submit_btn.btn .btn_label
+{
+    transform: scale(.5);
+
+    opacity: 0;
+}
+
+.form.processing .submit_btn.btn .loader
+{
+    transform: scale(.45);
+
+    opacity: 1;
+}

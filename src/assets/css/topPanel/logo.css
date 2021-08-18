@@ -1,0 +1,31 @@
+.logo
+{
+    font-family: var(--font_family2);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 110%;
+
+    display: flex;
+
+    width: var(--sidebar_width);
+    height: 60px;
+    margin-right: auto;
+
+    text-align: center;
+
+    border-right: 1px solid var(--border_color);
+    background: var(--block_bg);
+
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.logo img
+{
+    display: block;
+
+    height: 44px;
+    margin-right: 12px;
+}

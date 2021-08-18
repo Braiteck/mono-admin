@@ -1,0 +1,146 @@
+.user_dropdown
+{
+    position: absolute;
+    top: calc(100% + 32px);
+    right: 24px;
+
+    visibility: hidden;
+    overflow: hidden;
+
+    width: 220px;
+
+    transition: .2s linear;
+    pointer-events: none;
+
+    opacity: 0;
+    border-radius: var(--block_radius);
+    background: var(--block_bg);
+    box-shadow: var(--block_shadow);
+}
+
+.user_dropdown.show
+{
+    top: calc(100% + 12px);
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+    opacity: 1;
+}
+
+
+.user_dropdown .info
+{
+    padding: 32px 24px 24px;
+
+    text-align: center;
+}
+
+
+.user_dropdown .info .avatar
+{
+    position: relative;
+
+    width: 92px;
+    height: 92px;
+    margin-right: auto;
+    margin-bottom: 12px;
+    margin-left: auto;
+
+    border-radius: 50%;
+    background: #ddd;
+}
+
+.user_dropdown .info .avatar img
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: inherit;
+
+    object-fit: cover;
+}
+
+
+.user_dropdown .info .name
+{
+    color: #333;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 19px;
+}
+
+
+.user_dropdown .info .email
+{
+    color: #333;
+    font-size: 13px;
+    line-height: 19px;
+}
+
+
+.user_dropdown .links .border
+{
+    border-top: 1px solid var(--border_color);
+}
+
+
+.user_dropdown .links .link
+{
+    color: currentColor;
+    font-size: 14px;
+    line-height: 20px;
+
+    display: flex;
+
+    width: 100%;
+    padding: 16px 24px;
+
+    transition: background .2s linear;
+    text-align: left;
+    text-decoration: none;
+
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.user_dropdown .links .icon
+{
+    display: flex;
+
+    margin-right: 12px;
+
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.user_dropdown .links .icon > *
+{
+    display: block;
+
+    width: 16px;
+    height: 16px;
+}
+
+.user_dropdown .links span
+{
+    display: block;
+
+    width: calc(100% - 28px);
+}
+
+.user_dropdown .links .link:hover
+{
+    background: #fafafa;
+}
